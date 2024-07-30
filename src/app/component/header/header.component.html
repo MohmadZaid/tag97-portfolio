@@ -1,0 +1,29 @@
+<div
+  class="h-12 lg:h-20 flex items-center fixed top-0 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
+  [ngClass]="{
+    'lg:bg-transparent dark:lg:bg-transparent': !isScrolled,
+    'lg:bg-bgPrimary dark:lg:bg-bgDarkPrimary   shadow-md': isScrolled
+  }"
+>
+  <div class="xmp w-full flex justify-between items-center">
+    <div>tag97</div>
+
+    <div class="cursor-pointer text-xl font-jost lg:flex hidden">
+      <div class="mx-2 hover:text-primary" *ngFor="let menu of menuItem">
+        {{ menu.name }}
+      </div>
+    </div>
+
+    <div class="lg:hidden cursor-pointer" (click)="toggleMenu = !toggleMenu">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </div>
+  </div>
+</div>
+
+<!-- -----------------------------mobile Menu ----------------------------------------------------------------- -->
+<div
+  class="lg:hidden text-base font-jost flex-col fixed top-12 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
+  [ngClass]="toggleMenu ? 'flex border-t border-gray-600' : 'hidden shadow-md'"
+>
+  <div class="ml-4 my-2" *ngFor="let menu of menuItem">{{ menu.name }}</div>
+</div>
