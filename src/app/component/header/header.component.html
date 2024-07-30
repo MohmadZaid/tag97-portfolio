@@ -1,8 +1,8 @@
 <div
-  class="h-12 lg:h-20 flex items-center fixed top-0 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
+  class="h-14 lg:h-20 flex items-center fixed top-0 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
   [ngClass]="{
     'lg:bg-transparent dark:lg:bg-transparent': !isScrolled,
-    'lg:bg-bgPrimary dark:lg:bg-bgDarkPrimary   shadow-md': isScrolled
+    'lg:bg-bgPrimary dark:lg:bg-bgDarkPrimary shadow-md': isScrolled
   }"
 >
   <div class="xmp w-full flex justify-between items-center">
@@ -15,14 +15,17 @@
     </div>
 
     <div class="lg:hidden cursor-pointer" (click)="toggleMenu = !toggleMenu">
-      <i class="fa-solid fa-bars text-2xl"></i>
+      <i
+        class="fa-solid text-2xl"
+        [ngClass]="toggleMenu ? 'fa-xmark' : 'fa-bars'"
+      ></i>
     </div>
   </div>
 </div>
 
 <!-- -----------------------------mobile Menu ----------------------------------------------------------------- -->
 <div
-  class="lg:hidden text-base font-jost flex-col fixed top-12 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
+  class="lg:hidden text-base font-jost flex-col fixed top-12 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black shadow-sm"
   [ngClass]="toggleMenu ? 'flex border-t border-gray-600' : 'hidden shadow-md'"
 >
   <div class="ml-4 my-2" *ngFor="let menu of menuItem">{{ menu.name }}</div>
