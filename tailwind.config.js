@@ -9,7 +9,8 @@ export const theme = {
   extend: {
     colors: {
       ...colors,
-      primary: "#F75023",
+      primary: "#00539C",
+      secondary: "#EEA47F",
       bgPrimary: "#FFFFFF",
       bgSecondary: "#F2F5FB",
       bgDarkPrimary: "#2B2D33 ",
@@ -25,3 +26,6 @@ export const theme = {
   },
 };
 export const plugins = [];
+
+
+// primary: "#F75023",

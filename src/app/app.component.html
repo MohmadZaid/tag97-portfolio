@@ -1,16 +1,19 @@
 <div [ngClass]="{ dark: darkTheme }">
-  <tag97-header></tag97-header>
+  <tag97-custom-cursor></tag97-custom-cursor>
+  <tag97-header #HeaderComponent></tag97-header>
 
-  <main class="dark:text-white text-black">
+  <main class="dark:text-white text-black scroll-smooth" id="Home">
     <!-- 1st Section Start -->
     <div
-      class="h-[85vh] lg:mt-0 flex items-center justify-center lg:h-screen dark:bg-[url('/assets/1sectionDark.jpg')] bg-[url('/assets/1sectionLight.jpg')] bg-cover"
+      class="h-[97vh] lg:mt-0 flex items-center justify-center lg:h-screen dark:bg-[url('/assets/1sectionDark.jpg')] bg-[url('/assets/1sectionLight.jpg')] bg-cover"
     >
       <div
         class="xmp font-jost flex lg:flex-row flex-col-reverse justify-start lg:justify-between items-center"
       >
         <div class="space-y-3 pb-3 select-none lg:w-2/4 w-full">
-          <p class="text-primary font-jost text-2xl">Welcome to</p>
+          <p class="text-primary dark:text-secondary font-jost text-2xl">
+            Welcome to
+          </p>
           <h1 class="text-6xl font-jost">Tag97</h1>
           <p class="mt-3 text-xl">
             A <span class="text-green-500">Creative Web Designers</span> from
@@ -25,7 +28,8 @@
           >
             <button
               type="submit"
-              class="bg-primary rounded-full px-9 py-3 border border-primary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:text-bgDarkPrimary"
+              class="bg-primary dark:bg-secondary rounded-full px-9 py-3 border border-primary dark:border-secondary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:dark:bg-transparent hover:text-primary dark:hover:text-secondary text-base"
+              (click)="navigate('About')"
             >
               About us
             </button>
@@ -47,6 +51,7 @@
         </div>
         <div class="relative">
           <img
+            loading="lazy"
             class="bg-cover lg:max-h-96 max-h-64 select-none"
             src="/assets/asset 1.png"
             alt="home page Image"
@@ -54,16 +59,19 @@
           />
           <div class="lg:block hidden">
             <img
+              loading="lazy"
               class="absolute animate-bounce left-0 top-5 h-12"
               src="assets/angular-icon.svg"
               alt="technology svg"
             />
             <img
+              loading="lazy"
               class="absolute animate-bounce h-12 right-0 top-2/4"
               src="assets/flutter-icon.svg"
               alt="technology svg"
             />
             <img
+              loading="lazy"
               class="absolute animate-bounce h-12 left-0 bottom-3"
               src="assets/javascript-icon.svg"
               alt="technology svg"
@@ -112,7 +120,10 @@
     <!-- 2nd Section End -->
 
     <!-- 3rd section Start -->
-    <div class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative">
+    <div
+      class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+      id="About"
+    >
       <div
         class="xmp flex lg:flex-row flex-col gap-x-3 justify-between items-center"
       >
@@ -121,6 +132,7 @@
           data-aos="fade-up"
         >
           <img
+            loading="lazy"
             class="bg-cover lg:max-h-96 max-h-64 select-none"
             src="/assets/asset 5.jpeg"
             alt="home page Image"
@@ -153,7 +165,7 @@
             class="leading-[20px] flex flex-col lg:items-start items-center justify-center line-clamp-6"
           >
             <h4
-              class="font-jost text-2xl text-primary mt-4 lg:text-start text-center"
+              class="font-jost text-2xl text-primary dark:text-secondary mt-4 lg:text-start text-center"
             >
               We are web Developer
             </h4>
@@ -171,8 +183,9 @@
             </p>
 
             <button
-              type="submit"
-              class="mt-4 bg-primary rounded-full px-9 py-3 border border-primary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:text-bgDarkPrimary"
+              type="button"
+              class="mt-4 bg-primary hover:text-primary dark:bg-secondary rounded-full px-9 py-3 border border-primary dark:border-secondary text-bgPrimary dark:text-bgPrimary hover:bg-transparent dark:hover:bg-transparent dark:hover:text-secondary"
+              (click)="navigate('Contact')"
             >
               Contact Us
             </button>
@@ -181,12 +194,14 @@
       </div>
       <div class="hidden lg:block">
         <img
+          loading="lazy"
           class="absolute top-0 left-7 select-none"
           src="assets/asset 6.png"
           alt=""
           data-aos="fade-up"
         />
         <img
+          loading="lazy"
           class="absolute bottom-0 right-7 select-none"
           src="assets/asset 7.png"
           alt=""
@@ -196,14 +211,21 @@
     </div>
     <!-- 3rd section End -->
 
-    <!-- 4th section Start -->
-    <div class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative">
+    <!-- 4th PROJECTS section Start -->
+    <div
+      class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+      id="PortFolio"
+    >
       <div class="xmp">
         <div
           class="flex justify-center items-center flex-col leading-9"
           data-aos="fade-up"
         >
-          <h6 class="text-primary text-2xl font-jost text-center">Portfolio</h6>
+          <h6
+            class="text-primary dark:text-secondary text-2xl font-jost text-center"
+          >
+            Portfolio
+          </h6>
           <h2 class="text-3xl font-jost text-center">Our Amazing Works</h2>
           <p
             class="text-slate-700 dark:text-slate-200 leading-normal text-center"
@@ -213,36 +235,38 @@
           </p>
         </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-7 gap-4 mt-8"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gap-7 gap-4 mt-8"
         >
-          @for (item of [0,0,0,0,0,]; track $index) {
+          @for (project of projects | async; track $index) {
           <a
             class="mt-8 shadow-md bg-bgPrimary dark:bg-bgDarkSecondary rounded-md hover:scale-105 transition-all duration-500 cursor-pointer z-10"
-            href="https://tag97.com/"
+            [href]="project.link"
             target="_blank"
             data-aos="fade-up"
           >
             <div class="">
               <img
+                loading="lazy"
                 class="rounded-t-md"
-                src="https://firebasestorage.googleapis.com/v0/b/zaidportfolio-6f577.appspot.com/o/project_images%2Fnks-Home.png?alt=media&token=9c101b4e-edbd-49a3-9cdf-e7bf28d84928"
-                alt=""
-                srcset=""
+                [src]="project.imageUrl"
+                alt="project Image"
               />
             </div>
-            <div class="p-2">New King Shoes</div>
+            <div class="p-2">{{ project.name }}</div>
           </a>
           }
         </div>
       </div>
       <div class="hidden lg:block">
         <img
+          loading="lazy"
           class="absolute top-16 left-7 select-none"
           src="assets/asset 11.png"
           alt=""
           data-aos="zoom-in"
         />
         <img
+          loading="lazy"
           class="absolute bottom-16 right-7 select-none"
           src="assets/asset 12.png"
           alt=""
@@ -263,7 +287,7 @@
             data-aos="fade-up"
           >
             <h4
-              class="font-jost text-xl sm:text-3xl text-primary mt-4 text-start"
+              class="font-jost text-xl sm:text-3xl text-primary dark:text-secondary mt-4 text-start"
             >
               Our work process
             </h4>
@@ -303,6 +327,7 @@
 
         <div class="flex-1 flex flex-col items-center justify-center">
           <img
+            loading="lazy"
             class="bg-cover sm:max-h-96 max-h-64 select-none z-10"
             src="/assets/asset 13.jpeg"
             alt=""
@@ -313,6 +338,7 @@
 
       <div class="hidden lg:block">
         <img
+          loading="lazy"
           class="absolute bottom-0 right-0 select-none z-0"
           src="assets/asset 23.png"
           data-aos="zoom-in"
@@ -321,14 +347,21 @@
     </div>
     <!-- 5th section END -->
 
-    <!-- 6th section Start -->
-    <div class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative">
+    <!-- 6th Service section Start -->
+    <div
+      class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+      id="Services"
+    >
       <div class="xmp">
         <div
           class="flex justify-center items-center flex-col leading-9"
           data-aos="fade-up"
         >
-          <h6 class="text-primary text-2xl font-jost text-center">Services</h6>
+          <h6
+            class="text-primary dark:text-secondary text-2xl font-jost text-center"
+          >
+            Services
+          </h6>
           <h2 class="text-3xl font-jost text-center">What I Do for Clients</h2>
           <p
             class="text-slate-700 dark:text-slate-200 leading-normal text-center"
@@ -391,6 +424,7 @@
 
       <div class="hidden lg:block">
         <img
+          loading="lazy"
           class="absolute max-h-96 top-44 left-0 select-none"
           src="assets/asset 22.png"
           alt=""
@@ -399,11 +433,16 @@
     </div>
     <!-- 6th section END -->
 
-    <!-- 7th section Start -->
-    <div class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative">
+    <!-- 7th contact section Start -->
+    <div
+      class="lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+      id="Contact"
+    >
       <div class="xmp" data-aos="fade-up">
         <div class="flex justify-center items-center flex-col leading-9">
-          <h6 class="text-primary text-2xl font-jost text-center">
+          <h6
+            class="text-primary dark:text-secondary text-2xl font-jost text-center"
+          >
             Contact us
           </h6>
           <h2 class="text-3xl font-jost text-center">
@@ -412,7 +451,7 @@
           <p
             class="text-slate-700 dark:text-slate-200 leading-normal text-center"
           >
-            Please fill out the form on this section to contact with me.
+            Please fill out the form to contact us.
           </p>
           <p
             class="text-slate-700 dark:text-slate-200 leading-normal text-center"
@@ -427,7 +466,9 @@
               <div
                 class="col-span-3 bg-orange-500/15 rounded-full w-[78px] h-[78px] flex justify-center items-center"
               >
-                <i class="fa-solid fa-location-dot text-primary text-2xl"></i>
+                <i
+                  class="fa-solid fa-location-dot text-primary dark:text-secondary text-2xl"
+                ></i>
               </div>
               <div class="ml-4 col-span-9 flex flex-col">
                 <h1 class="text-2xl">Address</h1>
@@ -438,81 +479,33 @@
               </div>
             </div>
             <div class="grid grid-cols-12" data-aos="fade-up">
-              <div
+              <a
+                href="mailto:contact@tag97.com"
                 class="col-span-3 bg-green-500/15 rounded-full w-[78px] h-[78px] flex justify-center items-center"
               >
                 <i class="fa-solid fa-envelope text-green-500 text-2xl"></i>
-              </div>
+              </a>
               <div class="ml-4 col-span-9 flex flex-col">
                 <h1 class="text-2xl">Email</h1>
-                <p>
+                <a href="mailto:contact@tag97.com">
                   {{ "contact@tag97.com" }}
-                </p>
+                </a>
               </div>
             </div>
             <div class="grid grid-cols-12" data-aos="fade-up">
-              <div
+              <a
+                href="tel:+918469799777"
                 class="col-span-3 bg-violet-500/15 rounded-full w-[78px] h-[78px] flex justify-center items-center"
               >
                 <i class="fa-solid fa-phone text-violet-500 text-2xl"></i>
-              </div>
+              </a>
               <div class="ml-4 col-span-9 flex flex-col">
                 <h1 class="text-2xl">Phone</h1>
-                <p>+91 84697 99777</p>
+                <a href="tel:+918469799777">+91 84697 99777</a>
               </div>
             </div>
           </div>
-          <div>
-            <form
-              action=""
-              class="grid grid-cols-12 gap-4 mt-8"
-              data-aos="fade-up"
-            >
-              <div class="lg:col-span-6 col-span-12">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  class="border border-slate-600 rounded-md px-5 py-3 w-full dark:bg-transparent"
-                  data-aos="fade-up"
-                />
-              </div>
-              <div class="lg:col-span-6 col-span-12">
-                <input
-                  type="number"
-                  name="name"
-                  placeholder="Your Mobile Number"
-                  class="border border-slate-600 rounded-md px-5 py-3 w-full dark:bg-transparent"
-                  data-aos="fade-up"
-                />
-              </div>
-              <div class="col-span-12">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  class="border border-slate-600 rounded-md px-5 py-3 w-full dark:bg-transparent"
-                  data-aos="fade-up"
-                />
-              </div>
-              <div class="col-span-12">
-                <textarea
-                  class="border border-slate-600 rounded-md px-5 py-3 w-full dark:bg-transparent"
-                  data-aos="fade-up"
-                  cols="5"
-                  placeholder="Write Your Message Here"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="bg-primary rounded-full px-9 py-3 border border-primary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:text-bgDarkPrimary"
-                >
-                  Send
-                </button>
-              </div>
-            </form>
-          </div>
+          <tag97-contact-form></tag97-contact-form>
         </div>
         <div class="w-full sm:h-96 h-80 pt-20" data-aos="fade-up">
           <iframe
@@ -528,12 +521,14 @@
       </div>
       <div class="lg:block hidden">
         <img
+          loading="lazy"
           class="absolute max-h-96 top-1 left-0 select-none"
           src="assets/asset 38.png"
           alt=""
-          data-aos="fade-up"
+          data-aos="zoom-in"
         />
         <img
+          loading="lazy"
           class="absolute max-h-96 bottom-96 right-0 select-none"
           src="assets/asset 37.png"
           alt=""
@@ -547,11 +542,21 @@
 </div>
 
 <!-- DELETE this CODE after done switch -->
-<h2
+
+<label
+  class="ui-switch fixed top-2/4 left-0 z-[100000] cursor-pointer -rotate-90"
+>
+  <input type="checkbox" [(ngModel)]="darkTheme" />
+  <div class="slider">
+    <div class="circle"></div>
+  </div>
+</label>
+
+<!-- <h2
   class="fixed top-0 right-0 z-[100000] cursor-pointer"
   (click)="darkTheme = !darkTheme"
 >
   switch
-</h2>
+</h2> -->
 
 <!-- DELETE this CODE after done switch -->

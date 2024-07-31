@@ -1,0 +1,65 @@
+<form
+  [formGroup]="visitorForm"
+  (ngSubmit)="submitInquirie()"
+  class="grid grid-cols-12 gap-4 mt-8"
+  data-aos="fade-up"
+>
+  <div class="lg:col-span-6 col-span-12">
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Your Name"
+      class="border rounded-md px-5 py-3 w-full dark:bg-transparent"
+      [ngClass]="{
+        'border-red-500': isControlInvalid('name'),
+        'border-slate-600': !isControlInvalid('name')
+      }"
+    />
+  </div>
+  <div class="lg:col-span-6 col-span-12">
+    <input
+      type="number"
+      minlength="10"
+      formControlName="phoneNumber"
+      placeholder="Your Mobile Number"
+      class="border rounded-md px-5 py-3 w-full dark:bg-transparent"
+      [ngClass]="{
+        'border-red-500': isControlInvalid('phoneNumber'),
+        'border-slate-600': !isControlInvalid('phoneNumber')
+      }"
+    />
+  </div>
+  <div class="col-span-12">
+    <input
+      type="text"
+      formControlName="email"
+      placeholder="Your Email"
+      class="border rounded-md px-5 py-3 w-full dark:bg-transparent"
+      [ngClass]="{
+        'border-red-500': isControlInvalid('email'),
+        'border-slate-600': !isControlInvalid('email')
+      }"
+    />
+  </div>
+  <div class="col-span-12">
+    <textarea
+      formControlName="message"
+      class="border rounded-md px-5 py-3 w-full dark:bg-transparent"
+      cols="5"
+      placeholder="Write Your Message Here"
+      [ngClass]="{
+        'border-red-500': isControlInvalid('message'),
+        'border-slate-600': !isControlInvalid('message')
+      }"
+    ></textarea>
+  </div>
+  <div>
+    <button
+      [disabled]="visitorForm.invalid"
+      type="submit"
+      class="disabled:bg-bgDarkSecondary disabled:border-none disabled:hover:text-white dark:disabled:bg-bgDarkSecondary dark:disabled:border-none dark:disabled:hover:text-white disabled:cursor-not-allowed bg-primary hover:text-primary dark:bg-secondary dark:border-secondary rounded-full px-9 py-3 border border-primary text-bgPrimary dark:text-bgPrimary hover:bg-transparent dark:hover:bg-transparent dark:hover:text-secondary"
+    >
+      Send
+    </button>
+  </div>
+</form>

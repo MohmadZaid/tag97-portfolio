@@ -1,16 +1,23 @@
 <div
-  class="h-14 lg:h-20 flex items-center fixed top-0 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
+  class="navbar h-14 lg:h-20 flex items-center fixed top-0 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black"
   [ngClass]="{
     'lg:bg-transparent dark:lg:bg-transparent': !isScrolled,
     'lg:bg-bgPrimary dark:lg:bg-bgDarkPrimary shadow-md': isScrolled
   }"
 >
   <div class="xmp w-full flex justify-between items-center">
-    <div>tag97</div>
+    <div (click)="navigateAndClose('Home')">
+      <img class="sm:w-40 w-32 cursor-pointer" src="assets/T97.png" alt="" />
+    </div>
 
     <div class="cursor-pointer text-xl font-jost lg:flex hidden">
-      <div class="mx-2 hover:text-primary" *ngFor="let menu of menuItem">
-        {{ menu.name }}
+      <div
+        *ngFor="let menu of menuItem"
+        class="mx-2 hover:text-primary dark:hover:text-secondary"
+        [ngClass]="activeLink == menu ? 'text-primary dark:text-secondary' : ''"
+        (click)="navigateAndClose(menu)"
+      >
+        {{ menu }}
       </div>
     </div>
 
@@ -25,8 +32,14 @@
 
 <!-- -----------------------------mobile Menu ----------------------------------------------------------------- -->
 <div
-  class="lg:hidden text-base font-jost flex-col fixed top-12 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black shadow-sm"
+  class="lg:hidden text-base font-jost flex-col fixed top-14 w-full bg-bgPrimary dark:bg-bgDarkPrimary z-50 dark:text-white text-black shadow-sm"
   [ngClass]="toggleMenu ? 'flex border-t border-gray-600' : 'hidden shadow-md'"
 >
-  <div class="ml-4 my-2" *ngFor="let menu of menuItem">{{ menu.name }}</div>
+  <div
+    class="ml-4 my-2 cursor-pointer"
+    *ngFor="let menu of menuItem"
+    (click)="navigateAndClose(menu)"
+  >
+    {{ menu }}
+  </div>
 </div>
