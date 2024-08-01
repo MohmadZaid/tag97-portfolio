@@ -235,7 +235,7 @@
           </p>
         </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gap-7 gap-4 mt-8"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:gap-9 gap-4 mt-8"
         >
           @for (project of projects | async; track $index) {
           <a
@@ -252,7 +252,7 @@
                 alt="project Image"
               />
             </div>
-            <div class="p-2">{{ project.name }}</div>
+            <div class="p-2 text-primary dark:text-secondary text-xl font-jost">{{ project.name }}</div>
           </a>
           }
         </div>
@@ -370,7 +370,7 @@
             sapiente aut laboriosam deserunt reiciendis.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
           <tag97-service-card
             class="z-10"
             title="UI & Graphic Design"
