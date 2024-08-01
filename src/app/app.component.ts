@@ -7,11 +7,13 @@ import { Observable } from 'rxjs';
 import { FirebaseCollection } from '../enum/firebase';
 import { FirebaseService } from '../services/firebase.service';
 import { ContactFormComponent } from './component/contact-form/contact-form.component';
+import { CustomCursorComponent } from './component/custom-cursor/custom-cursor.component';
 import { FeatureCardComponent } from './component/feature-card/feature-card.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ServiceCardComponent } from './component/service-card/service-card.component';
-import { CustomCursorComponent } from "./component/custom-cursor/custom-cursor.component";
+import { ToasterComponent } from './component/toaster/toaster.component';
+import { LoaderComponent } from "./component/loader/loader.component";
 interface project {
   id?: string;
   name: string;
@@ -32,15 +34,22 @@ interface project {
     ServiceCardComponent,
     ContactFormComponent,
     FormsModule,
-    CustomCursorComponent
+    CustomCursorComponent,
+    ToasterComponent,
+    LoaderComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  public darkTheme = true;
-  public projects!: Observable<project[]>;
   private fbService = inject(FirebaseService);
+  public darkTheme = true;
+  public showToaster = false;
+  public toasterStatus = '';
+
+  public loader = false;
+
+  public projects!: Observable<project[]>;
   ngOnInit() {
     AOS.init();
     this.projects = this.fbService.getAll<project>(FirebaseCollection.Projects);
@@ -49,7 +58,13 @@ export class AppComponent implements OnInit {
   @ViewChild('HeaderComponent') header!: HeaderComponent;
 
   navigate(link: string) {
-    console.log(link);
     this.header.navigateAndClose(link);
+  }
+  statusChange(event: string) {
+    this.toasterStatus = event;
+    this.showToaster = true;
+    setTimeout(() => {
+      this.showToaster = false;
+    }, 2000);
   }
 }

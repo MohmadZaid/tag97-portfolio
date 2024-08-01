@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { FirebaseCollection } from '../../../enum/firebase';
 import { FirebaseService } from '../../../services/firebase.service';
+
 @Component({
   selector: 'tag97-contact-form',
   standalone: true,
@@ -16,8 +17,8 @@ import { FirebaseService } from '../../../services/firebase.service';
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent implements OnInit {
+  @Output() statusEvent = new EventEmitter<string>();
   public visitorForm!: FormGroup;
-
   private firebaseservice = inject(FirebaseService);
   private fb = inject(FormBuilder);
   ngOnInit(): void {
@@ -37,17 +38,19 @@ export class ContactFormComponent implements OnInit {
   submitInquirie() {
     if (this.visitorForm.valid) {
       try {
-        console.log(this.visitorForm.value);
+
         this.firebaseservice.add(
           FirebaseCollection.Visitors,
           this.visitorForm.value
         );
+        this.statusEvent.emit('success');
         this.visitorForm.reset();
       } catch (error) {
+        this.statusEvent.emit('failed');
         console.log(error);
       }
     } else {
-      alert('not Valid');
+      this.statusEvent.emit('failed');
     }
   }
 }

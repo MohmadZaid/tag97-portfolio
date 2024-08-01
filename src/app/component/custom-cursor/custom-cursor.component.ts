@@ -33,18 +33,17 @@ export class CustomCursorComponent {
       target.tagName.toLowerCase() === 'a' ||
       target.tagName.toLowerCase() === 'button'
     ) {
-      console.log(target.tagName.toLowerCase());
-
       if (ringElement) {
         ringElement.classList.remove('lg:block');
       }
       if (dotElement) {
+        dotElement.classList.remove('top-[17px]', 'left-[17px]');
         dotElement.classList.add(
           'w-20',
           'h-20',
-          'top-[-23px]',
-          'left-[-22px]',
-          'bg-primary/50',
+          '-top-4',
+          '-left-4',
+          'bg-primary/20',
           'dark:bg-secondary/20'
         );
       }
@@ -63,15 +62,17 @@ export class CustomCursorComponent {
       if (ringElement) {
         ringElement.classList.add('lg:block');
       }
+
       if (dotElement) {
         dotElement.classList.remove(
           'w-20',
           'h-20',
-          'top-[-23px]',
-          'left-[-22px]',
-          'bg-primary/50',
+          '-top-4',
+          '-left-4',
+          'bg-primary/20',
           'dark:bg-secondary/20'
         );
+        dotElement.classList.add('top-[17px]', 'left-[17px]');
       }
     }
   }
