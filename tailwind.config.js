@@ -21,6 +21,7 @@ export const theme = {
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
       'jost': ["Jost", "sans-serif"],
+      'open': ["'Open Sans'", "sans-serif"]
 
     }
   },

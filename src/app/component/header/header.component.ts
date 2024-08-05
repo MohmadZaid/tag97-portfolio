@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -10,6 +16,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  private router = inject(Router);
   public toggleMenu = false;
   public isScrolled = false;
   public activeLink = 'Home';
@@ -19,9 +26,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isScrolled = window.scrollY > 50;
   }
 
-  public menuItem = ['Home', 'About', 'PortFolio', 'Services', 'Contact'];
+  public menuItem = [
+    'Home',
+    'About',
+    'PortFolio',
+    'Services',
+    'Blog',
+    'Contact',
+  ];
 
-  constructor(private readonly router: Router) {}
   ngOnInit(): void {
     this.initIntersectionObserver();
     const sections = document.querySelectorAll('.section');
@@ -37,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         behavior: 'smooth',
       });
       setTimeout(() => {
-        this.router.navigate([''], { fragment: link });
+        this.router.navigate([''], { replaceUrl: true, fragment: link });
       }, 1000);
     }
     if (this.toggleMenu) {

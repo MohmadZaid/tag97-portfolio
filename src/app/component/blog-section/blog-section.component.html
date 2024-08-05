@@ -1,0 +1,42 @@
+<div
+  class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+  id="Blog"
+>
+  <div class="xmp">
+    <div
+      class="flex justify-center items-center flex-col leading-9"
+      data-aos="fade-up"
+    >
+      <h6
+        class="text-primary dark:text-secondary text-2xl font-jost text-center"
+      >
+        Blogs
+      </h6>
+      <h2
+        class="text-4xl font-jost text-center break-normal max-w-[500px] break-words"
+      >
+        Our Recent Updates, Blog, Tips, Tricks & More
+      </h2>
+      <h2 class="text-4xl font-jost text-center break-normal"></h2>
+    </div>
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (blog of blogs; track $index) {
+      <tag97-blog-card
+        [title]="blog.title"
+        [category]="blog.category"
+        [image]="blog.image"
+      ></tag97-blog-card>
+
+      }
+    </div>
+    <div class="hidden lg:block">
+      <img
+        loading="lazy"
+        class="absolute top-0 right-0 select-none"
+        src="assets/asset 36.png"
+        alt=""
+        data-aos="zoom-in"
+      />
+    </div>
+  </div>
+</div>

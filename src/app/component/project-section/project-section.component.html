@@ -1,0 +1,62 @@
+<div
+  class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+  id="PortFolio"
+>
+  <div class="xmp">
+    <div
+      class="flex justify-center items-center flex-col leading-9"
+      data-aos="fade-up"
+    >
+      <h6
+        class="text-primary dark:text-secondary text-2xl font-jost text-center"
+      >
+        Portfolio
+      </h6>
+      <h2 class="text-3xl font-jost text-center">Our Amazing Works</h2>
+      <p class="text-slate-700 dark:text-slate-200 leading-normal text-center">
+        Most common methods for designing websites that work well on desktop is
+        responsive and adaptive design
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:gap-9 gap-4 mt-8 overflow-visible"
+    >
+      @for (project of projects | async; track $index) {
+
+      <a
+        [href]="project.link"
+        target="_blank"
+        class="mt-8 cursor-pointer z-10"
+        data-aos="fade-up"
+      >
+        <img
+          loading="lazy"
+          class="rounded-md hover:scale-105 hover:duration-150 transition-all"
+          [src]="project.imageUrl"
+          alt="project Image"
+        />
+
+        <div class="p-2 text-primary dark:text-secondary text-xl font-jost">
+          {{ project.name }}
+        </div>
+      </a>
+      }
+    </div>
+  </div>
+  <div class="hidden lg:block">
+    <img
+      loading="lazy"
+      class="absolute top-16 left-7 select-none"
+      src="assets/asset 11.png"
+      alt=""
+      data-aos="zoom-in"
+    />
+    <img
+      loading="lazy"
+      class="absolute bottom-16 right-7 select-none"
+      src="assets/asset 12.png"
+      alt=""
+      data-aos="fade-up"
+    />
+  </div>
+</div>

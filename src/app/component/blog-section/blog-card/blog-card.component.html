@@ -1,0 +1,30 @@
+<div data-aos="fade-up">
+  <div
+    [routerLink]="['/blog', 'idd']"
+    class="overflow-hidden rounded-md relative"
+  >
+    <img
+      class="cursor-pointer rounded-md hover:scale-110 duration-300 w-full h-full sm:w-[458px] sm:h-[316px] lg:w-[346px] lg:h-[239px]"
+      [src]="image"
+      alt=""
+      srcset=""
+    />
+    <div
+      class="absolute top-4 right-4 bg-[#1cbe59] px-5 py-3 rounded-md flex items-center flex-col"
+    >
+      <h2 class="text-white dark:text-white font-semibold">April</h2>
+      <h6 class="text-white dark:text-white font-semibold">19</h6>
+    </div>
+  </div>
+  <div [routerLink]="['/blog', 'idd']" class="mt-3 flex flex-col">
+    <a class="text-primary dark:text-secondary font-jost text-base">
+      {{ category }}
+    </a>
+    <a
+      [routerLink]="['/blog', 'idd']"
+      class="mt-2 select-none hover:text-primary hover:dark:text-secondary font-jost text-xl cursor-pointer"
+    >
+      {{ title }}
+    </a>
+  </div>
+</div>

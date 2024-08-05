@@ -6,13 +6,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { FirebaseCollection } from '../../../enum/firebase';
-import { FirebaseService } from '../../../services/firebase.service';
+import { FirebaseCollection } from '../../../../enum/firebase';
+import { FirebaseService } from '../../../../services/firebase.service';
+import { ToasterComponent } from '../../toaster/toaster.component';
 
 @Component({
   selector: 'tag97-contact-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ToasterComponent],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
@@ -21,6 +22,8 @@ export class ContactFormComponent implements OnInit {
   public visitorForm!: FormGroup;
   private firebaseservice = inject(FirebaseService);
   private fb = inject(FormBuilder);
+  public showToaster = true;
+  public toasterStatus = '';
   ngOnInit(): void {
     this.visitorForm = this.fb.group({
       name: ['', Validators.required],
@@ -38,7 +41,6 @@ export class ContactFormComponent implements OnInit {
   submitInquirie() {
     if (this.visitorForm.valid) {
       try {
-
         this.firebaseservice.add(
           FirebaseCollection.Visitors,
           this.visitorForm.value

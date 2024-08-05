@@ -135,7 +135,6 @@ export class FirebaseService {
     collectionName: FirebaseCollection,
     id: string
   ): Promise<void> {
-    console.log('remove', collectionName);
     return this.afs.collection<T>(collectionName).doc(id).delete();
   }
 }

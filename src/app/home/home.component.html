@@ -1,1 +1,38 @@
-<p>home works!</p>
+<!-- 1st Section Start -->
+<tag97-hero-section></tag97-hero-section>
+<!-- 1st section End -->
+
+<!-- 2nd Section Start -->
+<tag97-feature-section></tag97-feature-section>
+<!-- 2nd Section End -->
+
+<!-- 3rd section Start -->
+<tag97-about-section></tag97-about-section>
+<!-- 3rd section End -->
+
+<!-- 4th PROJECTS section Start -->
+<tag97-project-section></tag97-project-section>
+<!-- 4th section End -->
+
+<!-- 5th section Start -->
+<tag97-our-process-section></tag97-our-process-section>
+<!-- 5th section END -->
+
+<!-- 6th Service section Start -->
+<tag97-service-section></tag97-service-section>
+<!-- 6th section END -->
+
+<!-- 7th contact section Start -->
+<tag97-testimonials></tag97-testimonials>
+<!-- 7th contact section END -->
+
+<!-- 8th Blog section Start -->
+<tag97-blog-section></tag97-blog-section>
+<!-- 8th Blog section END -->
+
+<!-- 9th contact section Start -->
+<tag97-toaster *ngIf="showToaster" [status]="toasterStatus"></tag97-toaster>
+<tag97-contact-section
+  (sendEventofStatus)="statusEvent($event)"
+></tag97-contact-section>
+<!-- 9th section END -->

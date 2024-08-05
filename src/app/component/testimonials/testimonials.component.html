@@ -12,7 +12,7 @@
       >
         Testimonials
       </h6>
-      <h2 class="text-3xl font-jost text-center">What My Clients Say</h2>
+      <h2 class="text-3xl font-jost text-center">What Our Clients Say</h2>
       <p class="text-slate-700 dark:text-slate-200 leading-normal text-center">
         Most common methods for designing websites that work well on desktop is
         responsive and adaptive design
@@ -64,7 +64,9 @@
               [attr.data-aos]="aosEffect"
             >
               <div>
-                <p class="text-lg text-center md:h-28">
+                <p
+                  class="text-lg text-center md:h-28 font-open dark:text-[#B9B5C9] text-[#333333] italic"
+                >
                   {{ item.msg }}
                 </p>
               </div>
@@ -88,14 +90,20 @@
             </div>
           </div>
         </div>
-        <div (click)="next()" class="absolute top-2/4 right-0 cursor-pointer">
+        <div
+          (click)="next()"
+          class="absolute top-2/4 -right-4 cursor-pointer h-14 w-14 bg-slate-500/20 rounded-full flex justify-center items-center"
+        >
           <i
-            class="fa-solid fa-greater-than text-primary dark:text-secondary text-2xl"
+            class="fa-solid fa-greater-than text-primary dark:text-secondary text-3xl"
           ></i>
         </div>
-        <div (click)="prev()" class="absolute top-2/4 left-0 cursor-pointer">
+        <div
+          (click)="prev()"
+          class="absolute top-2/4 -left-4 cursor-pointer h-14 w-14 bg-slate-500/20 rounded-full flex justify-center items-center"
+        >
           <i
-            class="fa-solid fa-less-than text-primary dark:text-secondary text-2xl"
+            class="fa-solid fa-less-than text-primary dark:text-secondary text-3xl"
           ></i>
         </div>
       </div>
@@ -107,11 +115,38 @@
       src="assets/test-asset 24.png"
       loading="lazy"
       class="absolute max-h-96 top-0 right-0 select-none"
+      data-aos="fade-up"
     />
     <img
       src="assets/test-asset 33.png"
       loading="lazy"
-      class="absolute max-h-96 -bottom-16 left-0 select-none"
+      class="absolute max-h-96 -bottom-24 left-0 select-none z-0"
+      data-aos="fade-up"
     />
+
+    <div
+      class="absolute w-14 h-14 rounded-full bg-[#f0c45c] top-52 right-1/4 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
+    <div
+      class="absolute w-14 h-14 rounded-full border-[6px] border-green-800 bottom-64 right-40 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
+    <div
+      class="absolute w-6 h-6 rounded-full bg-[#8067f0] bottom-32 right-56 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
+    <div
+      class="absolute w-7 h-7 rounded-full border-[4px] border-[#8067f0] top-64 left-96 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
+    <div
+      class="absolute w-5 h-5 rounded-full bg-green-800 bottom-64 left-36 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
+    <div
+      class="absolute w-5 h-5 rounded-full bg-[#f0c45c] bottom-40 left-60 select-none animPulse"
+      data-aos="zoom-in"
+    ></div>
   </div>
 </div>
