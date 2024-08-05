@@ -31,7 +31,8 @@ export class CustomCursorComponent {
 
     if (
       target.tagName.toLowerCase() === 'a' ||
-      target.tagName.toLowerCase() === 'button'
+      target.tagName.toLowerCase() === 'button' ||
+      target.tagName.toLowerCase() === 'i'
     ) {
       if (ringElement) {
         ringElement.classList.remove('lg:block');
@@ -57,7 +58,8 @@ export class CustomCursorComponent {
     const target = event.target as HTMLElement;
     if (
       target.tagName.toLowerCase() === 'a' ||
-      target.tagName.toLowerCase() === 'button'
+      target.tagName.toLowerCase() === 'button' ||
+      target.tagName.toLowerCase() === 'i'
     ) {
       if (ringElement) {
         ringElement.classList.add('lg:block');

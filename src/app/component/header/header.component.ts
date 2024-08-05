@@ -26,8 +26,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.initIntersectionObserver();
     const sections = document.querySelectorAll('.section');
     console.log(sections);
-    
-    sections.forEach(section => this.observer.observe(section));
+
+    sections.forEach((section) => this.observer.observe(section));
   }
   public navigateAndClose(link: string) {
     const element = document.getElementById(link);
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         behavior: 'smooth',
       });
       setTimeout(() => {
-        this.router.navigate(['/'], { fragment: link });
+        this.router.navigate([''], { fragment: link });
       }, 1000);
     }
     if (this.toggleMenu) {
@@ -45,24 +45,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-
   initIntersectionObserver() {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5 // Adjust threshold as needed
+      threshold: 0.5, // Adjust threshold as needed
     };
 
     this.observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.activeLink = entry.target.id;
         }
       });
     }, options);
   }
-
-
 
   ngOnDestroy() {
     this.observer.disconnect();

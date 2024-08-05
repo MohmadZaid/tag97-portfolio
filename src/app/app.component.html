@@ -8,10 +8,10 @@
   <tag97-custom-cursor></tag97-custom-cursor>
   <tag97-header #HeaderComponent></tag97-header>
 
-  <main class="dark:text-white text-black scroll-smooth">
+  <main class="dark:text-white text-black">
     <!-- 1st Section Start -->
     <div
-      class="section h-[97vh] lg:mt-0 flex items-center justify-center lg:h-screen dark:bg-[url('/assets/1sectionDark.jpg')] bg-[url('/assets/1sectionLight.jpg')] bg-cover"
+      class="section h-[97vh] lg:mt-0 flex items-center flex-col justify-center lg:h-screen dark:bg-[url('/assets/1sectionDark.jpg')] bg-[url('/assets/1sectionLight.jpg')] bg-cover"
       id="Home"
     >
       <div
@@ -85,8 +85,17 @@
             />
           </div>
         </div>
+        <div></div>
+      </div>
+      <div class="flex justify-center items-center">
+        <svg viewBox="0 0 1000 1001.0101" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m500 .456c-151 0-273 122-273 273v454c0 151 122 273 273 273s273-122 273-273v-454c0-151-122-273-273-273zm236 727c0 131-106 237-236 237s-236-106-236-237v-454c0-131 106-237 236-237s236 106 236 237zm-99 39-129 130c-5 4-11 4-16 0l-129-130c-5-4-5-11 0-15l26-26c4-4 11-4 15 0l89 89c4 4 11 4 15 0l89-89c4-4 11-4 15 0l26 26c4 4 4 11-1 15z"
+          />
+        </svg>
       </div>
     </div>
+
     <!-- 1st section End -->
 
     <!-- 2nd Section Start -->
@@ -239,12 +248,12 @@
             is responsive and adaptive design
           </p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:gap-9 gap-4 mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:gap-9 gap-4 mt-8 overflow-visible">
           @for (project of projects | async; track $index) {
-          <a
-            class="mt-8 shadow-md bg-bgPrimary dark:bg-bgDarkSecondary rounded-md hover:scale-105 transition-all duration-500 cursor-pointer z-10"
-            [href]="project.link"
-            target="_blank"
+          <!-- [href]="project.link"
+            target="_blank" -->
+          <div
+            class="mt-8 shadow-md bg-bgPrimary dark:bg-bgDarkSecondary rounded-md hover:scale-105 hover:duration-150 duration-150 transition-all cursor-pointer"
             data-aos="fade-up"
           >
             <div class="">
@@ -258,7 +267,7 @@
             <div class="p-2 text-primary dark:text-secondary text-xl font-jost">
               {{ project.name }}
             </div>
-          </a>
+          </div>
           }
         </div>
       </div>
@@ -439,6 +448,10 @@
     <!-- 6th section END -->
 
     <!-- 7th contact section Start -->
+    <tag97-testimonials></tag97-testimonials>
+    <!-- 7th contact section END -->
+
+    <!-- 8th contact section Start -->
     <div
       class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
       id="Contact"
@@ -550,7 +563,7 @@
         />
       </div>
     </div>
-    <!-- 7th section END -->
+    <!-- 8th section END -->
   </main>
   <tag97-footer> </tag97-footer>
 </div>

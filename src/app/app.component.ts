@@ -14,6 +14,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { ServiceCardComponent } from './component/service-card/service-card.component';
 import { ToasterComponent } from './component/toaster/toaster.component';
 import { LoaderComponent } from "./component/loader/loader.component";
+import { TestimonialsComponent } from "./component/testimonials/testimonials.component";
 interface project {
   id?: string;
   name: string;
@@ -36,7 +37,8 @@ interface project {
     FormsModule,
     CustomCursorComponent,
     ToasterComponent,
-    LoaderComponent
+    LoaderComponent,
+    TestimonialsComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

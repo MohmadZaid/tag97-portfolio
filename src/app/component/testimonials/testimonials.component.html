@@ -1,0 +1,117 @@
+<div
+  class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+  id="Services"
+>
+  <div class="xmp">
+    <div
+      class="flex justify-center items-center flex-col leading-9"
+      data-aos="fade-up"
+    >
+      <h6
+        class="text-primary dark:text-secondary text-2xl font-jost text-center"
+      >
+        Testimonials
+      </h6>
+      <h2 class="text-3xl font-jost text-center">What My Clients Say</h2>
+      <p class="text-slate-700 dark:text-slate-200 leading-normal text-center">
+        Most common methods for designing websites that work well on desktop is
+        responsive and adaptive design
+      </p>
+    </div>
+    <div class="mt-8 gap-y-5">
+      <div
+        class="flex flex-col justify-center items-center relative"
+        data-aos="fade-up"
+      >
+        <div class="sm:w-16 sm:h-16 h-12 w-12">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            id="Layer_1"
+            x="0px"
+            y="0px"
+            width="100%"
+            height="100%"
+            viewBox="796 698 200 200"
+            enable-background="new 796 698 200 200"
+            xml:space="preserve"
+            class="svg replaced-svg"
+          >
+            <g>
+              <path
+                class="fill-primary dark:fill-secondary"
+                d="M885.208,749.739v-40.948C836.019,708.791,796,748.81,796,798v89.209h89.208V798h-48.26 C836.948,771.39,858.598,749.739,885.208,749.739z"
+              />
+              <path
+                class="fill-primary dark:fill-secondary"
+                d="M996,749.739v-40.948c-49.19,0-89.209,40.019-89.209,89.209v89.209H996V798h-48.26 C947.74,771.39,969.39,749.739,996,749.739z"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <div class="flex justify-center items-center" data-aos="fade-up">
+          <!-- [attr.data-aos]="aosEffect" -->
+          <div
+            *ngFor="let item of testimonials; let i = index"
+            class="mt-7 w-[57vw]"
+            [ngClass]="i === currentSlide ? 'flex' : 'hidden'"
+          >
+            <div
+              class="flex flex-col gap-y-7"
+              *ngIf="i === currentSlide"
+              [attr.data-aos]="aosEffect"
+            >
+              <div>
+                <p class="text-lg text-center md:h-28">
+                  {{ item.msg }}
+                </p>
+              </div>
+              <div
+                *ngIf="i === currentSlide"
+                class="flex flex-row justify-center gap-x-6"
+              >
+                <div>
+                  <img
+                    src="assets/asset 47.jpeg"
+                    class="h-16 w- 16 rounded-full"
+                  />
+                </div>
+                <div class="flex justify-center flex-col">
+                  <h2 class="font-semibold text-xl">{{ item.name }}</h2>
+                  <p class="text-slate-700 dark:text-slate-200">
+                    {{ item.company }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div (click)="next()" class="absolute top-2/4 right-0 cursor-pointer">
+          <i
+            class="fa-solid fa-greater-than text-primary dark:text-secondary text-2xl"
+          ></i>
+        </div>
+        <div (click)="prev()" class="absolute top-2/4 left-0 cursor-pointer">
+          <i
+            class="fa-solid fa-less-than text-primary dark:text-secondary text-2xl"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden lg:block">
+    <img
+      src="assets/test-asset 24.png"
+      loading="lazy"
+      class="absolute max-h-96 top-0 right-0 select-none"
+    />
+    <img
+      src="assets/test-asset 33.png"
+      loading="lazy"
+      class="absolute max-h-96 -bottom-16 left-0 select-none"
+    />
+  </div>
+</div>
