@@ -19,21 +19,41 @@
       </h2>
       <h2 class="text-4xl font-jost text-center break-normal"></h2>
     </div>
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (blog of blogs; track $index) {
+    <div
+      class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"
+    >
+      @for (blog of blogs$ | async; track $index) {
       <tag97-blog-card
         [title]="blog.title"
         [category]="blog.category"
-        [image]="blog.image"
+        [image]="blog.imageUrl"
+        [id]="blog.id"
+        [updatedDate]="blog.updatedDate"
       ></tag97-blog-card>
 
       }
+    </div>
+    <div class="flex justify-end mt-2" data-aos="fade-up">
+      <div
+        [routerLink]="['/blog']"
+        routerLinkActive="router-link-active"
+        class="text-primary dark:text-secondary text-xl font-jost cursor-pointer"
+      >
+        More Blogs <i class="fa-solid fa-arrow-right"></i>
+      </div>
     </div>
     <div class="hidden lg:block">
       <img
         loading="lazy"
         class="absolute top-0 right-0 select-none"
         src="assets/asset 36.png"
+        alt=""
+        data-aos="zoom-in"
+      />
+      <img
+        loading="lazy"
+        class="absolute top-20 left-40 select-none"
+        src="assets/asset 35.png"
         alt=""
         data-aos="zoom-in"
       />

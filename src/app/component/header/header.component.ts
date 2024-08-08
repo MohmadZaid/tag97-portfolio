@@ -38,11 +38,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initIntersectionObserver();
     const sections = document.querySelectorAll('.section');
-    console.log(sections);
-
     sections.forEach((section) => this.observer.observe(section));
   }
   public navigateAndClose(link: string) {
+    if (this.router.url.split('#')[0] !== '/') {
+      this.router
+        .navigate(['/'], { fragment: link, skipLocationChange: true })
+        .then(() => {
+          this.scrollToFragment(link);
+        });
+    } else {
+      this.scrollToFragment(link);
+    }
+    if (this.toggleMenu) {
+      this.toggleMenu = false;
+    }
+  }
+
+  private scrollToFragment(link: string) {
     const element = document.getElementById(link);
     if (element) {
       this.activeLink = link;
@@ -50,11 +63,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
         behavior: 'smooth',
       });
       setTimeout(() => {
-        this.router.navigate([''], { replaceUrl: true, fragment: link });
+        this.router.navigate([''], { fragment: link });
       }, 1000);
-    }
-    if (this.toggleMenu) {
-      this.toggleMenu = false;
+    } else {
     }
   }
 

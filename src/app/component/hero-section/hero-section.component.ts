@@ -6,14 +6,12 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.scss'
+  styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent {
   private router = inject(Router);
 
-  navigate(link:string){
-    console.log(link);
-    
+  navigate(link: string) {
     this.router.navigate([''], { fragment: link });
   }
 }

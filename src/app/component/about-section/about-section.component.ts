@@ -6,14 +6,12 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './about-section.component.html',
-  styleUrl: './about-section.component.scss'
+  styleUrl: './about-section.component.scss',
 })
 export class AboutSectionComponent {
   private router = inject(Router);
 
-  navigate(link:string){
-    console.log(link);
-    
+  navigate(link: string) {
     this.router.navigate([''], { fragment: link });
   }
 }

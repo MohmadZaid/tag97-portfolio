@@ -1,20 +1,27 @@
 import { Routes } from '@angular/router';
-import { BlogComponent } from './blog/blog.component';
-import { SingleBlogComponent } from './blog/single-blog/single-blog.component';
-import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full',
+  // },
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('./home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'blog',
-    component: BlogComponent,
+    loadComponent: () =>
+      import('./blog/blog.component').then((m) => m.BlogComponent),
   },
   {
     path: 'blog/:id',
-    component: SingleBlogComponent,
+    loadComponent: () =>
+      import('./blog/single-blog/single-blog.component').then(
+        (m) => m.SingleBlogComponent
+      ),
   },
   {
     path: '**',

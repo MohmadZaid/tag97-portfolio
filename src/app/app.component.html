@@ -7,13 +7,18 @@
   <tag97-custom-cursor></tag97-custom-cursor>
   <tag97-header #HeaderComponent></tag97-header>
   <main class="dark:text-white text-black">
-    <router-outlet></router-outlet>>
-    <tag97-footer> </tag97-footer>
+    <router-outlet></router-outlet>
   </main>
+  <tag97-footer> </tag97-footer>
 
   <!-- theme switch START -->
   <label class="ui-switch fixed top-2/4 left-0 z-20 cursor-pointer -rotate-90">
-    <input type="checkbox" [(ngModel)]="darkTheme" />
+    <input
+      type="checkbox"
+      [(ngModel)]="darkTheme"
+      (ngModelChange)="themeChange()"
+      [checked]="darkTheme"
+    />
     <div class="slider">
       <div class="circle"></div>
     </div>
