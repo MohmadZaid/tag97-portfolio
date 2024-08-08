@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 @Component({
   selector: 'tag97-testimonials',
@@ -7,10 +10,11 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TestimonialsComponent {
-  currentSlide = 0;
-  aosEffect: string = 'fade-up';
+  // currentSlide = 0;
+  // aosEffect: string = 'fade-up';
   testimonials = [
     {
       msg: 'I rarely like to write reviews, but the Marketify team truly deserve a standing ovation for their customer support, customisation and most importantly, friendliness and professionalism. Many thanks once again for everything and hope that I get to deal with you again in the near future. ',
@@ -34,17 +38,4 @@ export class TestimonialsComponent {
     },
   ];
 
-  prev() {
-    if (this.currentSlide > 0) {
-      this.currentSlide = this.currentSlide - 1;
-      this.aosEffect = 'fade-right';
-    }
-  }
-
-  next() {
-    if (this.currentSlide < this.testimonials.length - 1) {
-      this.currentSlide = this.currentSlide + 1;
-      this.aosEffect = 'fade-left';
-    }
-  }
 }

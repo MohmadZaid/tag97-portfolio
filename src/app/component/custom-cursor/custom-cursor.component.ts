@@ -12,13 +12,13 @@ export class CustomCursorComponent {
     const ringElement = document.getElementById('cursor');
     const dotElement = document.getElementById('dot');
     if (ringElement) {
-      ringElement.style.transform = `translate(${event.clientX - 20}px, ${
-        event.clientY - 20
+      ringElement.style.transform = `translate(${event.clientX - 17}px, ${
+        event.clientY - 16
       }px)`;
     }
     if (dotElement) {
-      dotElement.style.transform = `translate(${event.clientX - 20}px, ${
-        event.clientY - 20
+      dotElement.style.transform = `translate(${event.clientX - 17}px, ${
+        event.clientY - 16
       }px)`;
     }
   }
@@ -37,7 +37,7 @@ export class CustomCursorComponent {
         ringElement.classList.remove('lg:block');
       }
       if (dotElement) {
-        dotElement.classList.remove('top-[17px]', 'left-[17px]');
+        dotElement.classList.remove('top-[14.5px]', 'left-[14.5px]');
         dotElement.classList.add(
           'w-20',
           'h-20',
@@ -72,7 +72,7 @@ export class CustomCursorComponent {
           'bg-primary/20',
           'dark:bg-secondary/20'
         );
-        dotElement.classList.add('top-[17px]', 'left-[17px]');
+        dotElement.classList.add('top-[14.5px]', 'left-[14.5px]');
       }
     }
   }

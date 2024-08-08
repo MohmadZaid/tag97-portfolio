@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   HostListener,
   inject,
   OnDestroy,
-  OnInit,
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements AfterViewInit, OnDestroy {
   private router = inject(Router);
   public toggleMenu = false;
   public isScrolled = false;
@@ -35,10 +35,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     'Contact',
   ];
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.initIntersectionObserver();
     const sections = document.querySelectorAll('.section');
-    sections.forEach((section) => this.observer.observe(section));
+    console.log(sections);
+    
+    if (sections.length > 0) {
+      sections.forEach((section) => this.observer.observe(section));
+    }
   }
   public navigateAndClose(link: string) {
     if (this.router.url.split('#')[0] !== '/') {
@@ -65,7 +69,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.router.navigate([''], { fragment: link });
       }, 1000);
-    } else {
     }
   }
 
@@ -79,6 +82,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          console.log(entry);
+          
           this.activeLink = entry.target.id;
         }
       });

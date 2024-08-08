@@ -1,12 +1,45 @@
-.animPulse {
-  animation: animPlus 3s linear 0s infinite alternate;
+// .animPulse {
+//   animation: animPlus 3s linear 0s infinite alternate;
+// }
+
+// @keyframes animPlus {
+//   from {
+//     transform: scale(1);
+//   }
+//   to {
+//     transform: scale(1.2);
+//   }
+// }
+
+.slider {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes animPlus {
-  from {
-    transform: scale(1);
+.slide-ana {
+  height: 300px;
+}
+
+.slide-ana > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 1s;
+}
+@media (min-width: 300px) and (max-width: 884px) {
+  .slider {
+    height: 650px;
   }
-  to {
-    transform: scale(1.2);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slider {
+    height: 381px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .slider {
+    height: 379px;
   }
 }

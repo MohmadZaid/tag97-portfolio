@@ -4,14 +4,14 @@
       <h6
         class="text-primary dark:text-secondary text-2xl font-jost text-center"
       >
-        BLOGS
+        BLOG
       </h6>
     </div>
 
     <div
-      class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 "
+      class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"
       [class.hidden]="isloading"
-      >
+    >
       @for (blog of blogs$ | async; track $index) {
       <tag97-blog-card
         [title]="blog.title"
@@ -44,4 +44,3 @@
     />
   </div>
 </div>
-
