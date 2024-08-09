@@ -1,0 +1,12 @@
+.animYbounce {
+  animation: anim_bounce 3s linear 0s infinite alternate;
+}
+
+@keyframes anim_bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}

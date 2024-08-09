@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit,
   Component,
+  ElementRef,
   HostListener,
   inject,
   OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
@@ -15,8 +16,9 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements AfterViewInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
+  private elRef = inject(ElementRef);
   public toggleMenu = false;
   public isScrolled = false;
   public activeLink = 'Home';
@@ -24,6 +26,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+    this.observeSections();
   }
 
   public menuItem = [
@@ -35,15 +38,22 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     'Contact',
   ];
 
-  ngAfterViewInit(): void {
-    this.initIntersectionObserver();
+  ngOnInit(): void {
+    this.observeSections();
+  }
+
+  private observeSections() {
     const sections = document.querySelectorAll('.section');
-    console.log(sections);
-    
     if (sections.length > 0) {
-      sections.forEach((section) => this.observer.observe(section));
+      sections.forEach((section: any) => {
+        if (!this.observer) {
+          this.initIntersectionObserver();
+        }
+        this.observer.observe(section);
+      });
     }
   }
+
   public navigateAndClose(link: string) {
     if (this.router.url.split('#')[0] !== '/') {
       this.router
@@ -82,8 +92,6 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry);
-          
           this.activeLink = entry.target.id;
         }
       });

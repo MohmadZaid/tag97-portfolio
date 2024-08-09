@@ -1,15 +1,15 @@
-// .animPulse {
-//   animation: animPlus 3s linear 0s infinite alternate;
-// }
+.animPulse {
+  animation: animPlus 3s linear 0s infinite alternate;
+}
 
-// @keyframes animPlus {
-//   from {
-//     transform: scale(1);
-//   }
-//   to {
-//     transform: scale(1.2);
-//   }
-// }
+@keyframes animPlus {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
 
 .slider {
   width: 100%;

@@ -5,7 +5,7 @@
 }@else {
 <div [ngClass]="{ dark: darkTheme }">
   <tag97-custom-cursor></tag97-custom-cursor>
-  <tag97-header #HeaderComponent></tag97-header>
+  <tag97-header></tag97-header>
   <main class="dark:text-white text-black">
     <router-outlet></router-outlet>
   </main>
@@ -23,8 +23,22 @@
       <div class="circle"></div>
     </div>
   </label>
-
   <!-- theme switch END -->
+
+  <!-- to-top Button Start -->
+  <button
+    class="Btn w-10 h-10 dark:bg-gradient-to-br bg-gradient-to-tl to-primary from-secondary justify-center items-center rounded-full cursor-pointer border-none fixed bottom-6 right-4 z-20"
+    [ngClass]="isScrolled ? 'flex' : 'hidden'"
+    (click)="scrolltoTop()"
+  >
+    <i class="arrow fa-solid fa-chevron-up text-white"></i>
+    <p
+      class="text opacity-0 transition duration-700 text-sm absolute -bottom-4 flex items-center justify-center dark:text-secondary text-primary text-nowrap"
+    >
+      Back to Top
+    </p>
+  </button>
+  <!-- to-top Button End -->
 </div>
 
 }
