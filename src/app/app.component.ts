@@ -28,7 +28,7 @@ import { HomeComponent } from './home/home.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  isScrolled = false;
+  public isScrolled = false;
   public darkTheme = true;
   public loader = false;
   @HostListener('window:scroll', [])
@@ -36,6 +36,10 @@ export class AppComponent implements OnInit {
     this.isScrolled = window.scrollY > 250;
   }
   ngOnInit() {
+    this.loader = true;
+    setTimeout(() => {
+      this.loader = false;
+    }, 1000);
     this.darkTheme =
       localStorage.getItem('tag97_darkTheme') == 'true' ? true : false;
     AOS.init();
@@ -43,7 +47,7 @@ export class AppComponent implements OnInit {
   themeChange() {
     localStorage.setItem('tag97_darkTheme', this.darkTheme.toString());
   }
-  scrolltoTop(){
+  scrolltoTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

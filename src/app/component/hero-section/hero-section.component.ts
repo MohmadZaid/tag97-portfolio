@@ -14,4 +14,13 @@ export class HeroSectionComponent {
   navigate(link: string) {
     this.router.navigate([''], { fragment: link });
   }
+
+  scrollToFeature() {
+    const element = document.getElementById('Feature');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }
 }
