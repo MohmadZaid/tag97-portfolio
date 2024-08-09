@@ -1,7 +1,10 @@
 <div class="mb-4" data-aos="fade-up">
-  <div [routerLink]="['/blog', id]" class="overflow-hidden rounded-md relative">
+  <div
+    [routerLink]="['/blog', id]"
+    class="overflow-hidden rounded-md relative max-h-48"
+  >
     <img
-      class="cursor-pointer rounded-md hover:scale-110 duration-300 w-full h-full sm:w-[458px] sm:h-[316px] lg:w-[346px] lg:h-[239px]"
+      class="cursor-pointer rounded-md hover:scale-110 duration-300 w-full h-full object-fill"
       [src]="image"
       alt=""
       srcset=""

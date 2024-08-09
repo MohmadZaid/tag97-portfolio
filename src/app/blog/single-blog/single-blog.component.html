@@ -1,60 +1,57 @@
-
-  <div *ngIf="blog$ | async as blog;else loader"
-    class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative" 
-    id="Blog"
-  >
-    <div class="xmp">
-      <div
-        class="mt-6 mb-4 flex justify-center items-center"
-        data-aos="fade-up"
-      >
-        <h2 class="text-4xl font-jost text-center break-normal break-words">
-          {{ blog.title }}
-        </h2>
-      </div>
-      <div data-aos="fade-up">
-        <img [src]="blog.imageUrl" class="sm:h-80 w-full rounded-md" />
-      </div>
-      <div class="mt-2" data-aos="fade-up">
-        <h2 class="text-base text-primary dark:text-secondary">
-          {{ blog.category }}
-        </h2>
-      </div>
-      <div class="mt-2" data-aos="fade-up">
-        <h2
-          class="text-base text-slate-600 dark:text-slate-200 text-pretty font-open text-justify"
-        >
-          {{ blog.description }}
-        </h2>
-      </div>
+<div
+  *ngIf="blog$ | async as blog; else loader"
+  class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+  id="Blog"
+>
+  <div class="xmp">
+    <div class="mt-6 mb-4 flex justify-center items-center" data-aos="fade-up">
+      <h2 class="text-4xl font-jost text-center break-normal break-words">
+        {{ blog.title }}
+      </h2>
     </div>
-
-    <div class="hidden lg:block">
-      <img
-        loading="lazy"
-        class="absolute top-2/4 right-0 select-none"
-        src="assets/test-asset 24.png"
-        alt=""
-        data-aos="fade-up"
-      />
-      <img
-        loading="lazy"
-        class="absolute top-20 left-10 select-none"
-        src="assets/asset 11.png"
-        alt=""
-        data-aos="fade-down"
-      />
-      <img
-        loading="lazy"
-        class="absolute bottom-20 left-0 select-none"
-        src="assets/asset 38.png"
-        alt=""
-        data-aos="zoom-in"
-      />
+    <div data-aos="fade-up">
+      <img [src]="blog.imageUrl" class="sm:h-96 w-full rounded-md" />
+    </div>
+    <div class="mt-2" data-aos="fade-up">
+      <h2 class="text-base text-primary dark:text-secondary">
+        {{ blog.category }}
+      </h2>
+    </div>
+    <div class="mt-2" data-aos="fade-up">
+      <h2
+        class="text-base text-slate-600 dark:text-slate-200 text-pretty font-open text-justify"
+      >
+        {{ blog.description }}
+      </h2>
     </div>
   </div>
 
- <ng-template #loader>
+  <div class="hidden lg:block">
+    <img
+      loading="lazy"
+      class="absolute top-2/4 right-0 select-none"
+      src="assets/test-asset 24.png"
+      alt=""
+      data-aos="fade-up"
+    />
+    <img
+      loading="lazy"
+      class="absolute top-20 left-10 select-none"
+      src="assets/asset 11.png"
+      alt=""
+      data-aos="fade-down"
+    />
+    <img
+      loading="lazy"
+      class="absolute bottom-20 left-0 select-none"
+      src="assets/asset 38.png"
+      alt=""
+      data-aos="zoom-in"
+    />
+  </div>
+</div>
+
+<ng-template #loader>
   <div class="dark:bg-bgDarkPrimary bg-bgPrimary">
     <tag97-loader></tag97-loader>
   </div>
