@@ -1,22 +1,26 @@
 <div
-  class="shadow-md bg-bgSecondary dark:bg-bgDarkSecondary h-60 w-80 select-none py-4 rounded-md px-3"
+  class="shadow-md bg-bgSecondary dark:bg-bgDarkSecondary w-80 select-none py-5 rounded-md px-4 special-cursor cursor-pointer"
 >
-  <div class="grid grid-cols-3">
-    <div class="relative w-28 col-span-1">
-      <img [src]="imageBg" alt="ring" />
+  <div class="grid grid-cols-3 special-cursor cursor-pointer">
+    <div class="relative w-28 col-span-1 special-cursor cursor-pointer">
+      <img [src]="imageBg" alt="ring" class="special-cursor cursor-pointer" />
       <img
-        class="absolute top-[21px] right-[42px]"
+        class="absolute top-[21px] right-[42px] special-cursor cursor-pointer"
         [src]="image"
         alt="serive image"
         srcset=""
       />
     </div>
-    <div class="col-span-2 relative ml-4">
-      <h2 class="text-2xl font-medium font-jost">{{ title }}</h2>
+    <div class="col-span-2 relative ml-4 special-cursor cursor-pointer">
+      <h2 class="text-2xl font-medium font-jost special-cursor cursor-pointer">
+        {{ title }}
+      </h2>
     </div>
   </div>
   <div>
-    <p class="text-slate-700 dark:text-slate-200 text-pretty">
+    <p
+      class="mt-2 text-slate-700 dark:text-slate-200 text-pretty line-clamp-2 special-cursor cursor-pointer"
+    >
       {{ description }}
     </p>
   </div>

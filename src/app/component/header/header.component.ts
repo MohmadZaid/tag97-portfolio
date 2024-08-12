@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public menuItem = [
     'Home',
     'About',
-    'PortFolio',
+    'Portfolio',
     'Services',
     'Blog',
     'Contact',

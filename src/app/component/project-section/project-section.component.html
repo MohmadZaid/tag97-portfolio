@@ -1,6 +1,6 @@
 <div
   class="section lg:py-24 py-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
-  id="PortFolio"
+  id="Portfolio"
 >
   <div class="xmp">
     <div
@@ -26,24 +26,26 @@
       <a
         [href]="project.link"
         target="_blank"
-        class="mt-8 cursor-pointer z-10 overflow-hidden rounded-md"
+        class="mt-8 cursor-pointer z-10 overflow-hidden rounded-md border-t-2 dark:border-slate-700 border-slate-300 shadow-md"
         data-aos="fade-up"
       >
         <img
           loading="lazy"
-          class="rounded-md hover:scale-105 hover:duration-150 transition-all"
+          class="hover:scale-105 hover:duration-150 transition-all special-cursor"
           [src]="project.imageUrl"
           alt="project Image"
         />
 
-        <div class="p-2 text-primary dark:text-secondary text-xl font-jost">
+        <div
+          class="p-2 text-primary dark:text-secondary text-xl font-jost special-cursor"
+        >
           {{ project.name }}
         </div>
       </a>
       }
     </div>
   </div>
-  <div class="hidden lg:block">
+  <div class="hidden lg:block overflow-x-hidden">
     <img
       loading="lazy"
       class="absolute top-16 left-7 select-none"
@@ -53,7 +55,7 @@
     />
     <img
       loading="lazy"
-      class="absolute bottom-16 right-7 select-none"
+      class="absolute bottom-5 right-4 select-none overflow-x-hidden"
       src="assets/asset 12.png"
       alt=""
       data-aos="fade-up"

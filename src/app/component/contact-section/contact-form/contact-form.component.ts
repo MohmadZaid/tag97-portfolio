@@ -27,9 +27,11 @@ export class ContactFormComponent implements OnInit {
   ngOnInit(): void {
     this.visitorForm = this.fb.group({
       name: ['', Validators.required],
-      phoneNumber: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
+      timestamp: [new Date().getTime()],
+      isRead: [false],
     });
   }
 
@@ -41,8 +43,9 @@ export class ContactFormComponent implements OnInit {
   submitInquirie() {
     if (this.visitorForm.valid) {
       try {
+        this.visitorForm.patchValue({ timestamp: new Date().getTime() });
         this.firebaseservice.add(
-          FirebaseCollection.Visitors,
+          FirebaseCollection.Inquiries,
           this.visitorForm.value
         );
         this.statusEvent.emit('success');

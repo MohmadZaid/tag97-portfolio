@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class AboutSectionComponent {
   private router = inject(Router);
 
+  public totalProject: number = 19;
+  public totalExperienceYear: number = 4;
+
   navigate(link: string) {
     this.router.navigate([''], { fragment: link });
   }

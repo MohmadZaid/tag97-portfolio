@@ -1,5 +1,5 @@
 export enum FirebaseCollection {
-  Visitors = 'visitors',
+  Inquiries = 'inquiries',
   Projects = 'projects',
   Blogs = 'blogs',
   Testimonials = 'testimonials',

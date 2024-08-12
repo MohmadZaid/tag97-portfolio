@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'tag97-custom-cursor',
   standalone: true,
@@ -7,6 +8,39 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './custom-cursor.component.scss',
 })
 export class CustomCursorComponent {
+  constructor(private router: Router) {
+    // Subscribe to router events to refresh cursor on navigation
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.reinitializeCursor();
+      }
+    });
+  }
+
+  reinitializeCursor() {
+    const ringElement = document.getElementById('cursor');
+    const dotElement = document.getElementById('dot');
+
+    // Additional logic to reset or refresh the cursor state if needed
+    if (ringElement && dotElement) {
+      if (ringElement) {
+        ringElement.classList.add('lg:block');
+      }
+
+      if (dotElement) {
+        dotElement.classList.remove(
+          'w-20',
+          'h-20',
+          '-top-4',
+          '-left-4',
+          'bg-primary/20',
+          'dark:bg-secondary/20'
+        );
+        dotElement.classList.add('top-[14.5px]', 'left-[14.5px]');
+      }
+    }
+  }
+
   @HostListener('window:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     const ringElement = document.getElementById('cursor');
@@ -31,7 +65,7 @@ export class CustomCursorComponent {
 
     if (
       target.tagName.toLowerCase() === 'a' ||
-      target.tagName.toLowerCase() === 'button'
+      target.classList.contains('special-cursor')
     ) {
       if (ringElement) {
         ringElement.classList.remove('lg:block');
@@ -57,7 +91,7 @@ export class CustomCursorComponent {
     const target = event.target as HTMLElement;
     if (
       target.tagName.toLowerCase() === 'a' ||
-      target.tagName.toLowerCase() === 'button'
+      target.classList.contains('special-cursor')
     ) {
       if (ringElement) {
         ringElement.classList.add('lg:block');

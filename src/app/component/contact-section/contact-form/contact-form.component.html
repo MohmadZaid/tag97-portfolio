@@ -20,7 +20,7 @@
     <input
       type="number"
       minlength="10"
-      formControlName="phoneNumber"
+      formControlName="phone"
       placeholder="Your Mobile Number"
       class="border rounded-md px-5 py-3 w-full dark:bg-transparent"
       [ngClass]="{
@@ -58,6 +58,7 @@
       [disabled]="visitorForm.invalid"
       type="submit"
       class="disabled:bg-bgDarkSecondary disabled:border-none disabled:hover:text-white dark:disabled:bg-bgDarkSecondary dark:disabled:border-none dark:disabled:hover:text-white disabled:cursor-not-allowed bg-primary hover:text-primary dark:bg-secondary dark:border-secondary rounded-full px-9 py-3 border border-primary text-bgPrimary dark:text-bgPrimary hover:bg-transparent dark:hover:bg-transparent dark:hover:text-secondary"
+      [ngClass]="{ 'special-cursor': visitorForm.valid }"
     >
       Send
     </button>

@@ -23,23 +23,31 @@
       >
         <button
           type="submit"
-          class="bg-primary dark:bg-secondary rounded-full px-9 py-3 border border-primary dark:border-secondary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:dark:bg-transparent hover:text-primary dark:hover:text-secondary text-base"
+          class="special-cursor bg-primary dark:bg-secondary rounded-full px-9 py-3 border border-primary dark:border-secondary text-bgPrimary dark:text-bgPrimary hover:bg-transparent hover:dark:bg-transparent hover:text-primary dark:hover:text-secondary text-base"
           (click)="navigate('About')"
         >
           About us
         </button>
         <div>
-          <span class="mr-4 cursor-pointer text-base"
-            ><i class="fa-brands fa-facebook-f"></i
+          <span class="mr-4 cursor-pointer text-base">
+            <a href="https://www.instagram.com/tag97_community/" target="_blank"
+              ><i class="fa-brands fa-facebook-f special-cursor"></i
+            ></a>
+          </span>
+          <span class="mr-4 cursor-pointer text-base">
+            <a href="https://www.instagram.com/tag97_community/" target="_blank"
+              ><i class="fa-brands fa-linkedin special-cursor"></i
+            ></a>
+          </span>
+          <span class="mr-4 cursor-pointer text-base">
+            <a href="https://www.instagram.com/tag97_community/" target="_blank"
+              ><i class="fa-brands fa-instagram special-cursor"></i></a
           ></span>
           <span class="mr-4 cursor-pointer text-base"
-            ><i class="fa-brands fa-linkedin"></i
-          ></span>
-          <span class="mr-4 cursor-pointer text-base"
-            ><i class="fa-brands fa-instagram"></i
-          ></span>
-          <span class="mr-4 cursor-pointer text-base"
-            ><i class="fa-brands fa-twitter"></i
+            ><a
+              href="https://www.instagram.com/tag97_community/"
+              target="_blank"
+              ><i class="fa-brands fa-twitter special-cursor"></i></a
           ></span>
         </div>
       </div>
@@ -75,8 +83,12 @@
     </div>
   </div>
 
-  <div class="flex justify-center items-center absolute bottom-2 sm:bottom-8" (click)="scrollToFeature()">
+  <div
+    class="flex justify-center items-center absolute bottom-2 sm:bottom-8"
+    (click)="scrollToFeature()"
+  >
     <svg
+      class="special-cursor cursor-pointer"
       width="26px"
       height="100%"
       viewBox="0 0 247 390"
@@ -92,11 +104,13 @@
       "
     >
       <path
+        class="special-cursor cursor-pointer"
         id="wheel"
         d="M123.359,79.775l0,72.843"
         style="fill: none; stroke: #000; stroke-width: 20px"
       ></path>
       <path
+        class="special-cursor cursor-pointer"
         id="mouse"
         d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
         style="fill: none; stroke: #000; stroke-width: 20px"

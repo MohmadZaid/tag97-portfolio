@@ -19,59 +19,17 @@
       </p>
     </div>
     <div class="flex flex-wrap justify-center gap-5 mt-8">
+      @for (service of services; let i = $index; track i) {
       <tag97-service-card
         class="z-10"
-        title="UI & Graphic Design"
-        description="We are using latest tool for design and develpoment, Like HTML, CSS & SCSS."
-        image="assets/services/design-development.svg"
-        imageBg="assets/asset s1.png"
+        [title]="service.title"
+        [description]="service.description"
+        [image]="service.image"
+        [imageBg]="getBgImage(i)"
         data-aos="fade-up"
+        (click)="modalOpen(service)"
       ></tag97-service-card>
-
-      <tag97-service-card
-        class="z-10"
-        title="Website Development"
-        description="In the process of Web Development, Developers build web pages and applications for either the Intranet, a private network."
-        image="assets/services/saving-strategy.svg"
-        imageBg="assets/asset s2.png"
-        data-aos="fade-up"
-      ></tag97-service-card>
-
-      <tag97-service-card
-        class="z-10"
-        title="Application Development"
-        description="A professional application developer is an impeccable source code creator of the software. Based on the specialized field."
-        image="assets/services/growth-strategy.svg  "
-        imageBg="assets/asset s3.png"
-        data-aos="fade-up"
-      ></tag97-service-card>
-
-      <tag97-service-card
-        class="z-10"
-        title="Software Development"
-        description="The stages are often referred to collectively as the software development life-cycle."
-        image="assets/services/digital-marketing.svg"
-        imageBg="assets/asset s4.png"
-        data-aos="fade-up"
-      ></tag97-service-card>
-
-      <tag97-service-card
-        class="z-10"
-        title="Development Outsourcing"
-        description="Since the outsourced workforce are already experienced and well-versed in the technologies and tools required of the development process."
-        image="assets/services/digital-strategy.svg"
-        imageBg="assets/asset s1.png"
-        data-aos="fade-up"
-      ></tag97-service-card>
-
-      <tag97-service-card
-        class="z-10"
-        title="Hosting & Deployment"
-        description="Deployment involves installing software on workstations or hosting it as an application. This stage makes the software accessible to users in a runtime state."
-        image="assets/services/digital-marketing.svg"
-        imageBg="assets/asset s2.png"
-        data-aos="fade-up"
-      ></tag97-service-card>
+      }
     </div>
   </div>
 
@@ -82,5 +40,32 @@
       src="assets/asset 22.png"
       alt=""
     />
+  </div>
+</div>
+
+<div
+  id="modelConfirm"
+  class="fixed z-50 inset-0 bg-gray-900 bg-opacity-60 h-full w-full px-4"
+  [ngClass]="isModalOpen ? 'block' : 'hidden'"
+>
+  <div
+    class="relative top-40 mx-auto shadow-xl rounded-md bg-bgPrimary dark:bg-bgDarkPrimary max-w-md"
+  >
+    <div class="flex justify-between p-4">
+      <h1 class="text-primary dark:text-secondary text-2xl font-jost">
+        {{ modalTitle }}
+      </h1>
+      <button
+        (click)="isModalOpen = !isModalOpen"
+        type="button"
+        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="p-4 text-pretty text-justify text-base">
+      {{ modalDescription }}
+    </div>
   </div>
 </div>

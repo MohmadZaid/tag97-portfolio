@@ -12,33 +12,30 @@
   <tag97-footer> </tag97-footer>
 
   <!-- theme switch START -->
-  <label class="ui-switch fixed top-2/4 left-0 z-20 cursor-pointer -rotate-90">
+  <label
+    class="ui-switch fixed top-2/4 left-0 z-20 cursor-pointer -rotate-90 special-cursor"
+  >
     <input
       type="checkbox"
       [(ngModel)]="darkTheme"
       (ngModelChange)="themeChange()"
       [checked]="darkTheme"
     />
-    <div class="slider">
-      <div class="circle"></div>
+    <div class="slider special-cursor">
+      <div class="circle special-cursor"></div>
     </div>
   </label>
   <!-- theme switch END -->
 
   <!-- to-top Button Start -->
-  <button
-    class="Btn w-10 h-10 dark:bg-gradient-to-br bg-gradient-to-tl to-primary from-secondary justify-center items-center rounded-full cursor-pointer border-none fixed bottom-6 right-4 z-20"
+
+  <a
+    class="justify-center items-center rounded-full cursor-pointer border-none fixed bottom-9 right-1 z-20 special-cursor text-slate-700 dark:text-slate-300 rotate-90"
     [ngClass]="isScrolled ? 'flex' : 'hidden'"
     (click)="scrolltoTop()"
   >
-    <i class="arrow fa-solid fa-chevron-up text-white"></i>
-    <p
-      class="text opacity-0 transition duration-700 text-sm absolute -bottom-4 flex items-center justify-center dark:text-secondary text-primary text-nowrap"
-    >
-      Back to Top
-    </p>
-  </button>
+    TO TOP</a
+  >
   <!-- to-top Button End -->
 </div>
-
 }
