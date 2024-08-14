@@ -1,5 +1,8 @@
 <div
-  class="shadow-md bg-bgSecondary dark:bg-bgDarkSecondary w-80 select-none py-5 rounded-md px-4 special-cursor cursor-pointer"
+  #card
+  class="card shadow-md bg-bgSecondary dark:bg-bgDarkSecondary w-80 select-none py-5 rounded-md px-4 special-cursor cursor-pointer"
+  (mousemove)="onMouseMove($event)"
+  (mouseleave)="onMouseLeave()"
 >
   <div class="grid grid-cols-3 special-cursor cursor-pointer">
     <div class="relative w-28 col-span-1 special-cursor cursor-pointer">
@@ -8,6 +11,7 @@
         class="absolute top-[21px] right-[42px] special-cursor cursor-pointer"
         [src]="image"
         alt="serive image"
+        z
         srcset=""
       />
     </div>

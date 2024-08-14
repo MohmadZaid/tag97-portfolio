@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, Renderer2 } from '@angular/core';
 import { ServiceCardComponent } from './service-card/service-card.component';
 
 @Component({
@@ -10,6 +10,7 @@ import { ServiceCardComponent } from './service-card/service-card.component';
   styleUrl: './service-section.component.scss',
 })
 export class ServiceSectionComponent {
+  private renderer = inject(Renderer2);
   public isModalOpen = false;
   public modalTitle!: string;
   public modalDescription!: string;
@@ -36,7 +37,7 @@ export class ServiceSectionComponent {
     {
       title: 'Software Development',
       description:
-        'The stages are often referred to collectively as the software development life-cycle.',
+        'Transform your ideas into powerful software solutions with our Software Development services. We specialize in building custom software tailored to meet the unique needs of your business. From concept to completion, our team of skilled developers works closely with you to design, develop, and deploy software that drives efficiency, enhances user experience, and scales with your growth. Our approach combines cutting-edge technology with a deep understanding of your business goals, ensuring that the software we create is not only functional but also aligned with your long-term vision. Whether you need a simple application or a complex enterprise solution, we deliver software that’s reliable, secure, and built to perform.',
       image: 'assets/services/digital-marketing.svg',
     },
     {
@@ -66,7 +67,20 @@ export class ServiceSectionComponent {
 
   modalOpen(service: any) {
     this.isModalOpen = true;
-    this.modalTitle = service.title
-    this.modalDescription = service.description
+    this.toggleBodyScroll(this.isModalOpen);
+    this.modalTitle = service.title;
+    this.modalDescription = service.description;
+  }
+  modalClose() {
+    this.isModalOpen = false;
+    this.toggleBodyScroll(this.isModalOpen);
+  }
+
+  toggleBodyScroll(disable: boolean) {
+    if (disable) {
+      this.renderer.addClass(document.body, 'no-scroll');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
   }
 }
