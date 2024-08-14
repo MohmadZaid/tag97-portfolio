@@ -14,9 +14,9 @@
       </h6>
       <h2 class="text-3xl font-jost text-center">What We Do for Clients</h2>
       <p class="text-slate-700 dark:text-slate-200 leading-normal text-center">
-        We offer tailored web development solutions, leveraging responsive and
-        adaptive design to create impactful digital experiences that drive
-        success.
+        We offer tailored web development solutions to help your business thrive
+        online. From stunning designs to robust functionality, our services
+        ensure your digital presence stands out and drives results.
       </p>
     </div>
     <div class="flex flex-wrap justify-center gap-5 mt-8">
@@ -46,27 +46,31 @@
 
 <div
   id="modelConfirm"
-  class="fixed z-50 inset-0 bg-gray-900 bg-opacity-60 h-full w-full px-4 overflow-y-auto"
+  class="fixed z-30 inset-0 bg-gray-900 bg-opacity-60 h-full w-full px-4"
   [ngClass]="isModalOpen ? 'block' : 'hidden'"
 >
   <div
-    class="relative top-40 mx-auto shadow-xl rounded-md bg-bgPrimary dark:bg-bgDarkPrimary max-w-md"
+    class="relative top-40 mx-auto shadow-xl rounded-md bg-bgPrimary dark:bg-bgDarkPrimary max-w-md px-6 py-4"
   >
-    <div class="flex justify-between px-6 py-4">
-      <h1 class="text-primary dark:text-secondary text-2xl font-jost">
+    <div class="flex justify-between pb-4">
+      <h1
+        class="text-primary dark:text-secondary text-2xl font-jost capitalize"
+      >
         {{ modalTitle }}
       </h1>
       <button
         (click)="modalClose()"
         type="button"
-        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+        class="special-cursor text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
       >
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark special-cursor"></i>
       </button>
     </div>
 
-    <div class="px-6 pb-4 text-pretty text-justify text-base">
+    <div class="text-pretty text-justify text-base capitalize">
       {{ modalDescription }}
     </div>
   </div>
 </div>
+
+

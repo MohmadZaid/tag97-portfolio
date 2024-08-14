@@ -13,6 +13,7 @@ import { ServiceCardComponent } from '../component/service-section/service-card/
 import { ServiceSectionComponent } from '../component/service-section/service-section.component';
 import { TestimonialsComponent } from '../component/testimonials/testimonials.component';
 import { ToasterComponent } from '../component/toaster/toaster.component';
+import { TechnologiesComponent } from "../component/technologies/technologies.component";
 @Component({
   selector: 'tag97-home',
   standalone: true,
@@ -31,7 +32,8 @@ import { ToasterComponent } from '../component/toaster/toaster.component';
     ServiceSectionComponent,
     ToasterComponent,
     BlogSectionComponent,
-  ],
+    TechnologiesComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

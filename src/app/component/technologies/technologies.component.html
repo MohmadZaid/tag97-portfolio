@@ -1,0 +1,197 @@
+<div
+  class="section lg:pb-24 pb-12 dark:bg-bgDarkPrimary bg-bgPrimary relative"
+  id="technologies"
+>
+  <div class="xmp">
+    <div
+      class="flex justify-center items-center flex-col leading-9"
+      data-aos="fade-up"
+    >
+      <h6
+        class="text-primary dark:text-secondary text-2xl font-jost text-center"
+      >
+        Technologies
+      </h6>
+      <h2 class="text-3xl font-jost text-center">
+        Our Expertise in Technology
+      </h2>
+    </div>
+
+    <div class="mt-4">
+      <div
+        class="w-full border-b-2 border-slate-700/20 dark:border-slate-300/20 flex flex-nowrap justify-center font-jost text-xl gap-x-4 overflow-x-auto"
+        data-aos="fade-up"
+      >
+        <button
+          class="whitespace-nowrap ml-48 sm:ml-0 special-cursor border-b-2 hover:border-primary hover:dark:border-secondary"
+          [ngClass]="
+            openTab === 1
+              ? ' border-primary dark:border-secondary'
+              : ' border-transparent'
+          "
+          (click)="toggleTabs(1)"
+        >
+          Front End
+        </button>
+        <button
+          class="whitespace-nowrap special-cursor border-b-2 hover:border-primary hover:dark:border-secondary"
+          [ngClass]="
+            openTab === 2
+              ? ' border-primary dark:border-secondary'
+              : 'border-transparent'
+          "
+          (click)="toggleTabs(2)"
+        >
+          Backend
+        </button>
+        <button
+          class="whitespace-nowrap special-cursor border-b-2 hover:border-primary hover:dark:border-secondary"
+          [ngClass]="
+            openTab === 3
+              ? ' border-primary dark:border-secondary'
+              : ' border-transparent'
+          "
+          (click)="toggleTabs(3)"
+        >
+          Mobile
+        </button>
+        <button
+          class="whitespace-nowrap special-cursor border-b-2 hover:border-primary hover:dark:border-secondary"
+          [ngClass]="
+            openTab === 4
+              ? ' border-primary dark:border-secondary'
+              : ' border-transparent'
+          "
+          (click)="toggleTabs(4)"
+        >
+          DevOps and Cloud
+        </button>
+      </div>
+
+      <div
+        [ngClass]="{ hidden: openTab !== 1, block: openTab === 1 }"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mt-4 gap-3"
+        data-aos="fade-up"
+      >
+        <tag97-technology-card
+          imageUrl="/assets/technologies/angular.png"
+          name="Angular JS"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/typescript.png"
+          name="TypeScript"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/react.png"
+          name="React JS"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/nextjs.png"
+          name="Next JS"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/tailwind.png"
+          name="Tailwind CSS"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/bootstrap.png"
+          name="Bootstrap"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/html.png"
+          name="HTML5"
+        ></tag97-technology-card>
+      </div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mt-4 gap-3"
+        [ngClass]="{ hidden: openTab !== 2, block: openTab === 2 }"
+      >
+        <tag97-technology-card
+          imageUrl="/assets/technologies/node.png"
+          name="Node JS"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/php.png"
+          name="Php"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/mongodb.png"
+          name="MongoDB"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/sql.png"
+          name="MySQL"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/postgreSQL.png"
+          name="PostgreSQL"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/firebase.png"
+          name="Firebase"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/laravel.png"
+          name="Laravel"
+        ></tag97-technology-card>
+      </div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mt-4 gap-3"
+        [ngClass]="{ hidden: openTab !== 3, block: openTab === 3 }"
+      >
+        <tag97-technology-card
+          imageUrl="/assets/technologies/flutter.png"
+          name="Flutter"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/ionic.png"
+          name="Ionic"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/android.png"
+          name="Android"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/ios.png"
+          name="Ios"
+        ></tag97-technology-card>
+      </div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mt-4 gap-3"
+        [ngClass]="{ hidden: openTab !== 4, block: openTab === 4 }"
+      >
+        <tag97-technology-card
+          imageUrl="/assets/technologies/aws.png"
+          name="Aws"
+        ></tag97-technology-card>
+
+        <tag97-technology-card
+          imageUrl="/assets/technologies/hostinger.png"
+          name="Hostinger"
+        ></tag97-technology-card>
+
+        <tag97-technology-card
+          imageUrl="/assets/technologies/digitaloccen.png"
+          name="DigitalOcean"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/docker.png"
+          name="Docker"
+        ></tag97-technology-card>
+        <tag97-technology-card
+          imageUrl="/assets/technologies/razorpay.png"
+          name="Razorpay"
+        ></tag97-technology-card>
+      </div>
+    </div>
+  </div>
+  <div class="hidden lg:block">
+    <img
+      loading="lazy"
+      class="absolute top-0 left-7 select-none"
+      src="assets/asset 6.png"
+      alt=""
+      data-aos="fade-up"
+    />
+  </div>
+</div>

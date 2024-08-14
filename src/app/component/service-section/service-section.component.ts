@@ -67,16 +67,18 @@ export class ServiceSectionComponent {
 
   modalOpen(service: any) {
     this.isModalOpen = true;
-    this.toggleBodyScroll(this.isModalOpen);
+    this.toggleBodyScroll(true);
     this.modalTitle = service.title;
     this.modalDescription = service.description;
   }
   modalClose() {
+    this.toggleBodyScroll(false);
     this.isModalOpen = false;
-    this.toggleBodyScroll(this.isModalOpen);
   }
 
   toggleBodyScroll(disable: boolean) {
+    console.log('no-scroll');
+
     if (disable) {
       this.renderer.addClass(document.body, 'no-scroll');
     } else {

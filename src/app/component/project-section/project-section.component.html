@@ -19,7 +19,7 @@
       </p>
     </div>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:gap-9 gap-4 mt-8 overflow-visible"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4 mt-8 overflow-visible"
     >
       @for (project of projects | async; track $index) {
 
@@ -37,7 +37,7 @@
         />
 
         <div
-          class="p-2 text-primary dark:text-secondary text-xl font-jost special-cursor"
+          class="p-2 text-primary dark:text-secondary text-xl font-jost special-cursor capitalize"
         >
           {{ project.name }}
         </div>
