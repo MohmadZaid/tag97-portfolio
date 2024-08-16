@@ -1,4 +1,10 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'tag97-service-card',
@@ -23,8 +29,8 @@ export class ServiceCardComponent {
     const xPercent = (x / width) * 100;
     const yPercent = (y / height) * 100;
 
-    const rotateX = ((yPercent - 50) / 50) * 15; // Adjust rotation range
-    const rotateY = ((xPercent - 50) / 50) * -15; // Adjust rotation range
+    const rotateX = ((yPercent - 50) / 50) * 15; // Adjust tilt up or down
+    const rotateY = ((50 - xPercent) / 50) * 15; // Adjust tilt left or right
 
     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   }

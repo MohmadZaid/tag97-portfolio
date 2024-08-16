@@ -24,6 +24,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'terms-and-conditions',
+    loadComponent: () =>
+      import('./terms-and-conditions/terms-and-conditions.component').then(
+        (m) => m.TermsAndConditionsComponent
+      ),
+  },
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./privacy-policy/privacy-policy.component').then(
+        (m) => m.PrivacyPolicyComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

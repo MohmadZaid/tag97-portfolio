@@ -1,13 +1,11 @@
-import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'tag97-footer',
   standalone: true,
-  imports: [DatePipe],
+  imports: [RouterLink],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {
-  public todayDate = new Date();
-}
+export class FooterComponent {}

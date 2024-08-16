@@ -28,14 +28,22 @@
   <!-- theme switch END -->
 
   <!-- to-top Button Start -->
+  <div [ngClass]="isScrolled ? 'flex' : 'hidden'">
+    <div
+      class="fixed bottom-12 right-0 sm:bottom-32 z-20 flex flex-col rotate-90 justify-center items-center rounded-full cursor-pointer border-none special-cursor text-slate-700 dark:text-slate-300"
+      (click)="scrolltoTop()"
+    >
+      TO TOP
+    </div>
 
-  <a
-    class="justify-center items-center rounded-full cursor-pointer border-none fixed bottom-9 right-1 z-20 special-cursor text-slate-700 dark:text-slate-300 rotate-90"
-    [ngClass]="isScrolled ? 'flex' : 'hidden'"
-    (click)="scrolltoTop()"
-  >
-    TO TOP</a
-  >
+    <div class="fixed bottom-0 right-7 z-20 hidden sm:block">
+      <div
+        class="transition-all duration-100 ease-linear bg-slate-500 dark:bg-slate-400 w-[1px] h-0 max-h-[100px] fixed"
+        [ngStyle]="{ height: scrollProgress * 1 + 'px' }"
+      ></div>
+      <div class="h-[100px] w-[1px] bg-slate-100 dark:bg-slate-700"></div>
+    </div>
+  </div>
   <!-- to-top Button End -->
 </div>
 }
